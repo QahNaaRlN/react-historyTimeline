@@ -1,0 +1,118 @@
+.circular-nav {
+	position: relative;
+	width: 100%;
+	max-width: 530px;
+	aspect-ratio: 1/1;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		background-color: rgba(66, 86, 122, 0.1);
+	}
+
+	&:before {
+		top: 50%;
+		left: -100%;
+		width: 100vw;
+		height: 2px;
+	}
+
+	&:after {
+		top: -100%;
+		left: 50%;
+		width: 2px;
+		height: calc(100vh + 100%);
+	}
+
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__circle {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border: 1px solid rgba(66, 86, 122, 0.1);
+		border-radius: 50%;
+		transform: rotate(var(--rotation, 0deg));
+		transition: transform 300ms linear;
+
+		&--no-transition {
+			transition: none;
+		}
+	}
+
+	&__point {
+		position: absolute;
+		left: var(--x);
+		top: var(--y);
+		transform: translate(-50%, -50%)
+			rotate(calc(-1 * var(--rotation, 0deg)));
+		cursor: pointer;
+		transform-origin: center;
+	}
+
+	&__point-marker {
+		width: 6px;
+		height: 6px;
+		background-color: #42567a;
+		border-radius: 50%;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.circular-nav__point:hover &,
+		.circular-nav__point--active & {
+			width: 56px;
+			height: 56px;
+			background-color: #f4f5f9;
+			border: 1px solid rgba(48, 62, 88, 0.5);
+		}
+	}
+
+	&__point-index {
+		display: none;
+		font-size: 20px;
+		color: #42567a;
+		font-weight: 400;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.circular-nav__point:hover &,
+		.circular-nav__point--active & {
+			display: block;
+		}
+	}
+
+	&__point-info {
+		position: absolute;
+		top: 50%;
+		padding-left: 40px;
+		transform: translateY(-50%);
+		white-space: nowrap;
+		opacity: 0;
+		transition: opacity 1s ease-out;
+		pointer-events: none;
+
+		.circular-nav__point--active & {
+			opacity: 1;
+			transition-delay: 2s; // Небольшая задержка перед появлением
+		}
+	}
+
+	&__point-name {
+		font-size: 20px;
+		color: #42567a;
+		font-weight: 700;
+	}
+}

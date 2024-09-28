@@ -1,0 +1,144 @@
+.historical-timeline {
+	position: relative;
+	&__content {
+		position: relative;
+		max-width: var(--content-width);
+		min-height: 100dvh;
+		margin-left: 160px;
+		overflow: hidden;
+		padding-top: 170px;
+	}
+	&__content:before,
+	&__content:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 2px;
+		background-color: var(--color-dark-slate-blue);
+		opacity: 0.1;
+		height: 100vh;
+	}
+	&__content:before {
+		left: 0;
+	}
+	&__content:after {
+		right: 0;
+	}
+	&__title {
+		max-width: 500px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-weight: 700;
+		font-size: clamp(20px, 2.92vw, 56px);
+		line-height: 1.2;
+		color: var(--color-dark-blue);
+		padding-left: 1.43em;
+		border-left-width: 6px;
+		border-left-style: solid;
+		border-image: linear-gradient(to bottom, #3877ee, #ef5da8) 1;
+	}
+	&__circular {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 45px 0;
+		margin-bottom: 56px;
+	}
+	&__controls {
+		position: absolute;
+		left: 80px;
+		bottom: 0;
+		max-width: 120px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: 20px;
+	}
+	&__dates {
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		width: 100%;
+		max-width: 973px;
+	}
+	&__date {
+		font-weight: 700;
+		font-size: clamp(56px, 10.42vw, 200px);
+		line-height: 0.8;
+		letter-spacing: -0.02em;
+		text-align: center;
+		color: var(--color-iris);
+	}
+	&__date--end {
+		color: var(--color-fuschia);
+	}
+	@media (max-width: 991px) {
+		&__circular {
+			flex-direction: column;
+			align-items: start;
+			padding: 0;
+		}
+		&__content:before,
+		&__content:after {
+			display: none;
+		}
+		&__content {
+			margin-left: 0;
+			padding-top: 59px;
+		}
+
+		&__title {
+			position: static;
+			max-width: 150px;
+			padding-left: 0;
+			border: none;
+			font-weight: 700;
+			margin-bottom: 56px;
+		}
+
+		&__dates {
+			position: static;
+		}
+
+		&__date {
+			font-size: 56px;
+			line-height: 1.2;
+
+			&--start {
+				color: #3877ee;
+			}
+
+			&--end {
+				color: #f178b6;
+			}
+		}
+
+		&__controls {
+			position: static;
+		}
+
+		&__events {
+			width: 100%;
+			padding: 0 20px;
+		}
+
+		.circular-nav,
+		.navigation-buttons {
+			display: none;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: #c7cdd9;
+			margin: 20px 0;
+		}
+	}
+}

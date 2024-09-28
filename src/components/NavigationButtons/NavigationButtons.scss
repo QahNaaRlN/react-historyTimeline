@@ -1,0 +1,33 @@
+.navigation-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.navigation-button {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 1px solid rgba(48, 62, 88, 0.5);
+	background-color: white;
+	color: #333;
+	font-size: 1.2rem;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+
+	&:hover:not(:disabled) {
+		background-color: #f0f0f0;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&--previous {
+		margin-right: 10px;
+	}
+
+	&--next {
+		margin-left: 10px;
+	}
+}

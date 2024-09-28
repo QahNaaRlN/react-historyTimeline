@@ -7,6 +7,17 @@
 	--color-fuschia: #ef5da8;
 	--color-dark-blue: #42567a;
 	--color-dark-slate-blue: #42567a;
+	--container-width: 1600px;
+	--content-width: 1440px;
+	--navigation-width: 1320px;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
@@ -14,7 +25,6 @@ body {
 	padding: 0;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 16px;
-	box-sizing: border-box;
 }
 
 #root {
@@ -22,6 +32,14 @@ body {
 }
 
 .container {
-	max-width: 1600px;
+	width: 100%;
+	max-width: var(--container-width);
 	margin: 0 auto;
+	padding: 0 15px;
+}
+
+@media (max-width: 767px) {
+	.container {
+		max-width: 100%;
+	}
 }
